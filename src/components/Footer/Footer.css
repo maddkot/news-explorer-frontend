@@ -1,0 +1,110 @@
+.footer {
+    font-family: "Roboto", "Arial", sans-serif;
+    max-width: 1440px;
+    min-width: 320px;
+    min-height: 60px;
+    display: flex;        
+    justify-content: space-between;
+    align-items: center;    
+    margin-right: 106px;
+    margin-left: 104px;
+}
+
+.footer__copyright {
+    font-family: "Roboto", "Arial", sans-serif;
+    font-size: 16px;
+    line-height: 22px;
+    color: #B6BCBF;
+    margin: 0;
+}
+
+.footer__navigation {
+    display: flex;
+    justify-content: space-between;
+   /*flex-wrap: wrap;  */     
+}
+
+.footer__links{
+    list-style-position: inside;
+    list-style-type: none;
+    padding-inline-start: 0;    
+    display: inline-flex; 
+    align-items:center;
+    margin: 0;   
+}
+
+.footer__links:nth-last-child(2){
+    margin-right: 42px;
+}
+
+.footer__item{
+    margin-right: 0px;
+}
+
+.footer__item:nth-child(1){
+    margin-right: 27px;
+}
+
+.footer__links-img {
+    width: 20px;
+    height: 20px;
+}
+
+.footer__link{
+    font-size: 18px;
+    line-height: 24px;
+    text-decoration: none;
+}
+.footer__link:hover{
+    opacity: 0.2;
+    transition: opacity linear 1s;  
+    text-decoration: underline;
+    text-underline-position: under;
+}
+
+@media screen and (max-width: 894px){
+    .footer{
+        margin-right: 41px;
+        margin-left: 40px;
+    }
+
+
+}
+@media screen and (max-width: 765px){
+    .footer{
+      flex-wrap: wrap-reverse;      
+    }
+    
+    .footer__links:nth-child(1){
+        flex-direction: column;
+        align-items:flex-start;
+    }
+    .footer__links{
+        align-items: stretch;
+    }
+    .footer__item:nth-child(1){
+        margin-bottom: 36px;
+    }
+    
+}
+
+@media screen and (max-width: 587px){
+    .footer{
+        justify-content: center;
+        margin-right: 18px;
+        margin-left: 16px;
+    }
+
+    /* .footer__item:nth-child(2){
+        margin-bottom: 38px;
+    } */
+    .footer__links{
+        align-items: stretch;
+    }
+}
+
+@media screen and (max-width: 664px){
+    .footer__copyright{
+        margin-top: 40px;
+    }
+}

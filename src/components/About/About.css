@@ -1,0 +1,20 @@
+.about{
+    max-width: 1440px;
+    min-height: 624px;
+    display: flex;
+    flex-direction: row;    
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+.about__img {
+    width: 464px;
+    height: 464px;
+    object-fit: cover;
+    border-radius: 1000px;    
+}
+
+.about__container-text{
+    width: 600px;
+    text-align: left;
+}
