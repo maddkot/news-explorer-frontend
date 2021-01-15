@@ -2,6 +2,7 @@ import React from 'react';
 import './Footer.css';
 import githublogo from '../../images/github_logo.png';
 import instagrammLogo from '../../images/instagramm_logo.png'
+import { Link } from 'react-router-dom';
 
 function Footer() {
     return (
@@ -11,7 +12,7 @@ function Footer() {
                                 
                    <ul className="footer__links">
                         <li className="footer__item">
-                            <a className="footer__link" href="https://yandex.ru/" target="_blank" rel="noreferrer">Главная</a>
+                            <Link className="footer__link" to="/" >Главная</Link>
                         </li>
                         <li className="footer__item">
                             <a className="footer__link"href="https://praktikum.yandex.ru/" target="_blank" rel="noreferrer">Яндекс.Практикум</a>
