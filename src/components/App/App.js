@@ -16,7 +16,7 @@ import PopupWithRegister from '../PopupWithRegister/PopupWithRegister';
 
 function App() {
 
-  const name = 'Александр';
+  const name = 'Владислав';
 
   const [isPopupLoginOpen, setPopupLogin] = React.useState(false);
   function handlePopupLoginOpen() {
