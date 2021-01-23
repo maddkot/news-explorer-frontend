@@ -1,13 +1,13 @@
 import React from 'react';
 import '../PopupWithForm/PopupWithForm.css';
 
-function PopupWithForm({nameForm, changelinkText, title, isOpen, onChangePopup, onClose, children}) {
+function PopupWithForm({nameForm, changelinkText, title, isOpen, onChangePopup, onClose, onSubmit, children}) {
     return (
         <div className={`popup popup_${nameForm} ${isOpen && 'popup_opened'}`}>
             <div className="popup__container">
                 <button className="popup__close-button" type="button" arial-label="Close" onClick={onClose}></button>
                 <div className="popup__form-container">
-                    <form className="popup__form" action="#" name={nameForm}>
+                    <form className="popup__form" action="#" name={nameForm} onSubmit={onSubmit} noValidate>
                     <h3 className="popup__title">{ title}</h3>
                     {children}
                     </form>                    

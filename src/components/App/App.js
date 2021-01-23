@@ -12,6 +12,7 @@ import Preloader from '../Preloader/Preloader';
 import NotFound from '../NotFound/NotFound';
 import PopupWithLogin from '../PopupWithLogin/PopupWithLogin';
 import PopupWithRegister from '../PopupWithRegister/PopupWithRegister';
+import PopupConfirm from '../PopupConfirm/PopupConfirm';
 
 
 function App() {
@@ -28,15 +29,27 @@ function App() {
     setPopupRegister(true);
   }
 
+  const [isPopupConfirmOpen, setPopupConfirm] = React.useState(false);
+  function handlePopupConfirm() {
+    setPopupConfirm(true);
+  }
+  
+  function openPopupLogin() {
+    handlePopupConfirm();    
+    handlePopupLoginOpen();    
+  }
+
   const [isBurgerOpen, setBurgerOpen] = React.useState(false);
   function handleBurger() {
     setBurgerOpen(true);
   }
+  
 
   function closeAllPopups() {
     setPopupLogin(false);
     setPopupRegister(false);
     setBurgerOpen(false);
+    setPopupConfirm(false);
   }
 
   React.useEffect(() => {
@@ -115,13 +128,17 @@ function App() {
         <PopupWithLogin
           isOpen={isPopupLoginOpen}
           onChangePopup={changePopup}
-          onClose={closeAllPopups}
-        
+          onClose={closeAllPopups}        
         />
         <PopupWithRegister
           isOpen={isPopupRegisterOpen}
           onChangePopup={changePopup}
           onClose={closeAllPopups}
+        />
+        <PopupConfirm
+          isOpen={ isPopupConfirmOpen}
+          onClose={closeAllPopups}
+          openPopupLogin={openPopupLogin}
         />
       </section>
 

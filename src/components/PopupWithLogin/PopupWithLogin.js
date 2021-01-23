@@ -1,14 +1,34 @@
 import React from 'react';
 import './PopupWIthLogin.css';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
+import ValidationForm from '../../utils/ValidatorForm';
+
 
 function PopupWithLogin({ isOpen, onChangePopup, onClose }) {
+
+    const {
+        values,
+        errors,
+        isValid,
+        handleChange,
+        resetForm,
+    } = ValidationForm();
+
+    function handleSubmit(event) {
+        event.preventDefault();
+    }
+
+    React.useEffect(() => {
+        resetForm();
+    }, [resetForm, isOpen])
+
+
     return (
         <PopupWithForm
             isOpen={isOpen}
             onChangePopup={onChangePopup}
             onClose={onClose}
-
+            onSubmit={handleSubmit}
             nameForm='login'
             title='Вход'
             changelinkText='Зарегистрироваться'>
@@ -20,8 +40,11 @@ function PopupWithLogin({ isOpen, onChangePopup, onClose }) {
                 placeholder="Введите почту"
                 required
                 minLength="5"
-                maxLength="15"></input>
-            <span className="popup__input-error"></span>
+                maxLength="20"
+                value={values.email || ''}
+                onChange={handleChange}
+            ></input>
+            <span className="popup__input-error">{ errors.email || ''}</span>
 
             <label className="popup__label">Пароль</label>
             <input
@@ -31,12 +54,15 @@ function PopupWithLogin({ isOpen, onChangePopup, onClose }) {
                 placeholder="Введите пароль"
                 required
                 minLength="5"
-                maxLength="15"></input>
-            <span className="popup__input-error"></span>
+                maxLength="20"
+                value={values.password || ''}
+                onChange={handleChange}
+            ></input>
+            <span className="popup__input-error">{ errors.password || ''}</span>
 
             <h6 className="popup__input-error">Текст ошибки из API</h6>
 
-            <button className="popup__submit" type="submit">Войти</button>
+            <button className={`popup__submit ${isValid ? 'popup__submit_activev' : ''}`} type="submit" disabled={!isValid}>Войти</button>
 
         </PopupWithForm>
         
