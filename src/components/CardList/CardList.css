@@ -33,6 +33,9 @@
   border: none;
   cursor: pointer;  
 }
+.cardList__button-disabled{
+    display: none;
+}
 
 .cardList__button:hover {
     opacity: 0.9;

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Switch, Route } from 'react-router-dom';
+import {Switch, Route, Redirect } from 'react-router-dom';
 import './App.css';
 import Footer from '../Footer/Footer';
 import About from '../About/About';
@@ -7,15 +7,19 @@ import CardList from '../CardList/CardList';
 import Search from '../Search/Search';
 import Header from '../Header/Header';
 import SavedNews from '../SavedNews/SavedNews';
-import CardListSaved from '../CardListSaved/CardListSaved';
-import Preloader from '../Preloader/Preloader';
-import NotFound from '../NotFound/NotFound';
+/* import TitleSavedNews from '../TitleSavedNews/TitleSavedNews';
+import CardListSaved from '../CardListSaved/CardListSaved'; */
+/* import Preloader from '../Preloader/Preloader';
+import NotFound from '../NotFound/NotFound'; */
 import PopupWithLogin from '../PopupWithLogin/PopupWithLogin';
 import PopupWithRegister from '../PopupWithRegister/PopupWithRegister';
 import PopupConfirm from '../PopupConfirm/PopupConfirm';
+import ProtectRoute from '../ProtectedRoute/ProtectedRoute';
 
 
 function App() {
+
+  const [loggedIn, setLoggedIn] = React.useState(false);
 
   const name = 'Владислав';
 
@@ -91,33 +95,31 @@ function App() {
   return (
     <div className="App">
 
-      <Switch>
-
-        <Route exact path="/">
-          <Header          
-            isLoginPopupOpen={handlePopupLoginOpen}
-            isOpenBurgerMenu={handleBurger}
-            burgerSetStyle={isBurgerOpen}
-            onClose={closeAllPopups}
-          />
-          <Search />  
-          <CardList />          
-          <About/>
-        </Route>
-
-        <Route path="/saved-news">
           <Header
             name={name}
             isLoginPopupOpen={handlePopupLoginOpen}
             isOpenBurgerMenu={handleBurger}
             burgerSetStyle={isBurgerOpen}
             onClose={closeAllPopups}
-          />          
-          <SavedNews name={name} />
-          <CardListSaved />
-          <Preloader />
-          <NotFound />
+          />
 
+      <Switch>
+
+        <Route exact path="/">
+          
+          <Search />  
+          <CardList />          
+          <About/>
+        </Route>
+
+        < ProtectRoute path="/saved-news"
+          name={name}
+          loggedIn={loggedIn}
+          component={SavedNews}
+        />
+
+        <Route>
+          {loggedIn ? <Redirect to="/saved-news"/> : <Redirect to="/"/>}
         </Route>
 
       </Switch>
@@ -128,7 +130,8 @@ function App() {
         <PopupWithLogin
           isOpen={isPopupLoginOpen}
           onChangePopup={changePopup}
-          onClose={closeAllPopups}        
+          onClose={closeAllPopups}
+          
         />
         <PopupWithRegister
           isOpen={isPopupRegisterOpen}
