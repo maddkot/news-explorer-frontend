@@ -4,7 +4,7 @@ import PopupWithForm from '../PopupWithForm/PopupWithForm';
 import ValidationForm from '../../utils/ValidatorForm';
 
 
-function PopupWithLogin({ isOpen, onChangePopup, onClose }) {
+function PopupWithLogin({ isOpen, onChangePopup, onClose, errorMessageInPopup, onLogin }) {
 
     const {
         values,
@@ -16,6 +16,7 @@ function PopupWithLogin({ isOpen, onChangePopup, onClose }) {
 
     function handleSubmit(event) {
         event.preventDefault();
+        onLogin(values.email, values.password);
     }
 
     React.useEffect(() => {
@@ -60,7 +61,7 @@ function PopupWithLogin({ isOpen, onChangePopup, onClose }) {
             ></input>
             <span className="popup__input-error">{ errors.password || ''}</span>
 
-            <h6 className="popup__input-error">Текст ошибки из API</h6>
+            <h6 className="popup__input-error">{ errorMessageInPopup}</h6>
 
             <button className={`popup__submit ${isValid ? 'popup__submit_activev' : ''}`} type="submit" disabled={!isValid}>Войти</button>
 

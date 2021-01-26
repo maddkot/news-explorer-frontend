@@ -3,7 +3,7 @@ import '../PopupWithRegister/PopupWithRegister.css';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
 import ValidationForm from '../../utils/ValidatorForm';
 
-function PopupWithRegister({ isOpen, onChangePopup, onClose }) {
+function PopupWithRegister({ isOpen, onChangePopup, onClose, errorMessageInPopup, onRegister }) {
     
     const {
         values,
@@ -15,6 +15,7 @@ function PopupWithRegister({ isOpen, onChangePopup, onClose }) {
 
     function handleSubmit(event) {
         event.preventDefault();
+        onRegister(values.email, values.password, values.name);
     }
 
     React.useEffect(() => {
@@ -72,7 +73,7 @@ function PopupWithRegister({ isOpen, onChangePopup, onClose }) {
             ></input>
             <span className="popup__input-error">{ errors.name || ''}</span>
 
-            <h6 className="popup__input-error">Текст ошибки из API</h6>
+            <h6 className="popup__input-error">{ errorMessageInPopup}</h6>
 
             <button className={`popup__submit ${isValid ? 'popup__submit_activev' : ''}`} type="submit" disabled={!isValid}>Зарегистрироваться</button>
 
