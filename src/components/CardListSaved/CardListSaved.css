@@ -6,6 +6,10 @@
     padding-bottom: 62px;
 }
 
+.card-list-saved_off{
+    display: none;
+}
+
 .card-list-saved__container{
     display: grid;
     grid-template-columns: repeat(3,minmax(auto,400px));

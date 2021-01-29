@@ -27,9 +27,9 @@ function BurgerMenu({ isLoginPopupOpen, isOpenBurgerMenu, burgerSetStyle, onClos
                         <li>
                             <Link to="/" className="burger__navigation-item">Главная</Link> 
                         </li>
-                        <li>
+                        {loggedIn && <li>
                             <Link to="/saved-news" className="burger__navigation-item">Сохранённые статьи</Link>
-                        </li>
+                        </li>}
                     </ul>
                     {!loggedIn ?
                         <button className="burger__button-auth" onClick={isLoginPopupOpen}>Авторизоваться</button>

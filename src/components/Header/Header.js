@@ -3,6 +3,7 @@ import { Link, NavLink, useLocation } from 'react-router-dom';
 import '../Header/Header.css';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import logoutIcon from '../../images/logoutIcon.png';
+import logoutIconDark from '../../images/logoutIconWhite.png';
 import CurrentUserContext from '../../context/CurrentUserContext';
 
 function Header({ isLoginPopupOpen, isOpenBurgerMenu, burgerSetStyle, onClose, isLogout, loggedIn }) {
@@ -12,7 +13,8 @@ function Header({ isLoginPopupOpen, isOpenBurgerMenu, burgerSetStyle, onClose, i
     const headerLogo = `${pathname === '/saved-news' ? 'header__logo_dark' : ''}`
     const headerItem = `${pathname === '/saved-news' ? 'header__navigation-item_dark' : ''}`       
     const headerItemActive = `${pathname === '/saved-news' ? 'header__navigation-item_active-dark' : ''}`
-    // const savedNews = pathname === '/saved-news';
+    const headerButtonLogout = `${pathname === '/saved-news' ? 'header__button-logout' : 'header__button-logout-dark'}`;
+    const logoutIconButton = `${pathname === '/saved-news' ? logoutIcon : logoutIconDark}`
 
     return (
         <header className="header">
@@ -31,7 +33,7 @@ function Header({ isLoginPopupOpen, isOpenBurgerMenu, burgerSetStyle, onClose, i
                     {!loggedIn ?
                         <button className="header__button-auth" onClick={isLoginPopupOpen}>Авторизоваться</button>
                         :
-                        <button className="header__button-logout" onClick={isLogout}>{ user.name}<img className="header__img-logout" alt="Кнопка выхода" src={logoutIcon}></img></button>
+                        <button className={`${headerButtonLogout}`} onClick={isLogout}>{ user.name}<img className="header__img-logout" alt="Кнопка выхода" src={logoutIconButton}></img></button>
                     }
                     
                 </nav>

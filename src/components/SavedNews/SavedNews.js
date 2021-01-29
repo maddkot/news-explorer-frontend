@@ -2,14 +2,19 @@ import React from 'react';
 import TitleSavedNews from '../TitleSavedNews/TitleSavedNews';
 import CardListSaved from '../CardListSaved/CardListSaved';
 
-function SavedNews({name}) {
+function SavedNews({mySavedArticle, loggedIn, checkMySaveArticle, savedKeywords,} ) {
     return (
         <>
             <TitleSavedNews
-                name={name}
+                mySavedArticle={mySavedArticle}
+                savedKeywords={savedKeywords}
             />
             
-            <CardListSaved />
+            <CardListSaved
+                mySavedArticle={mySavedArticle}
+                loggedIn={loggedIn}
+                checkMySaveArticle={checkMySaveArticle}
+            />
         </>    
     )
 }

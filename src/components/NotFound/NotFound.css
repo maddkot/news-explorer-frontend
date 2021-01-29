@@ -8,6 +8,10 @@
   align-items: center;  
 }
 
+.not-found_off{
+    display: none;
+}
+
 .not-found__container{
    margin-top: 86px;
    margin-bottom: 80px;
