@@ -33,7 +33,7 @@ function TitleSavedNews({mySavedArticle, savedKeywords}) {
         <section className="savedNews">
             <div className="savedNews__container">
                 <p className="savedNews__subtitle">Сохранённые статьи</p>
-                <h2 className="savedNews__title">{user.name}, у Вас {mySavedArticle.length} сохраненных статей</h2>
+                <h2 className="savedNews__title">{user.name}, у Вас {mySavedArticle.length} статей сохранено</h2>
                 <p className="savedNews__keywords">По ключевым словам:
                     <span className="savedNews__tag"> {tagsString}</span>  
                     {otherCount ? <> и 

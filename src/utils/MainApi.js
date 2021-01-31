@@ -1,4 +1,4 @@
-export const base_url = 'http://localhost:3000';
+export const base_url = 'https://api.newsexplorer.maddkot.students.nomoreparties.space' //'http://localhost:3000';
 const ImgPlug = 'https://yadi.sk/i/QkgRhn9fhtIRRw';
 
 // создание нового пользователя 
