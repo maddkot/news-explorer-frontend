@@ -13,6 +13,10 @@
     align-items: center;
 }
 
+.preloader_off{
+   display: none; 
+}
+
 .preloader__container{
     margin-top: 80px;
     margin-bottom: 80px;

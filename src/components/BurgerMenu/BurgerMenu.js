@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../BurgerMenu/BurgerMenu.css';
 import { Link, useLocation } from 'react-router-dom';
-import logoutIcon from '../../images/logoutIcon.png'
+import logoutIcon from '../../images/logoutIcon.png';
+import CurrentUserContext from '../../context/CurrentUserContext';
 
-function BurgerMenu({name, isLoginPopupOpen, isOpenBurgerMenu, burgerSetStyle, onClose}) {
+function BurgerMenu({ isLoginPopupOpen, isOpenBurgerMenu, burgerSetStyle, onClose, loggedIn, isLogout}) {
 
     const { pathname } = useLocation();
     const BurgerMenu = `${pathname === '/saved-news' ? 'burger__button-menu_black' : ''}`;
-    const savedNews = pathname === '/saved-news';
+    //const savedNews = pathname === '/saved-news';
+    const user = useContext(CurrentUserContext);
     
 
     return (
@@ -25,14 +27,14 @@ function BurgerMenu({name, isLoginPopupOpen, isOpenBurgerMenu, burgerSetStyle, o
                         <li>
                             <Link to="/" className="burger__navigation-item">Главная</Link> 
                         </li>
-                        <li>
+                        {loggedIn && <li>
                             <Link to="/saved-news" className="burger__navigation-item">Сохранённые статьи</Link>
-                        </li>
+                        </li>}
                     </ul>
-                    {!savedNews ?
+                    {!loggedIn ?
                         <button className="burger__button-auth" onClick={isLoginPopupOpen}>Авторизоваться</button>
                         :
-                        <button className="burger__button-logout">{ name}<img className="burger__img-logout" alt="Кнопка выхода" src={logoutIcon}></img></button>
+                        <button className="burger__button-logout" onClick={isLogout}>{ user.name}<img className="burger__img-logout" alt="Кнопка выхода" src={logoutIcon}></img></button>
                 
                     }
                          

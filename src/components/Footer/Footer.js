@@ -5,9 +5,13 @@ import instagrammLogo from '../../images/instagramm_logo.png'
 import { Link } from 'react-router-dom';
 
 function Footer() {
+
+    const data = new Date();
+    const actualYear = data.getFullYear();    
+
     return (
         <footer className="footer">            
-            <p className="footer__copyright">&copy; 2020 Supersite, Powered by News API</p>
+            <p className="footer__copyright">&copy; {actualYear} Supersite, Powered by News API</p>
             <div className="footer__navigation">
                                 
                    <ul className="footer__links">

@@ -7,6 +7,10 @@
     
 }
 
+.cardList_off{
+    display: none;
+}
+
 .cardList__title{
    font-family: 'Robotos', 'Arial',sans-serif;
     font-size: 40px;
@@ -32,6 +36,9 @@
   outline: none;
   border: none;
   cursor: pointer;  
+}
+.cardList__button-disabled{
+    display: none;
 }
 
 .cardList__button:hover {

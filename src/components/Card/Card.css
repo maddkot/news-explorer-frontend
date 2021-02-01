@@ -72,6 +72,38 @@
     justify-content: center;    
     align-items: center;
 }
+.card__favorite{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 24px;
+    right: 24px;    
+    border-radius: 8px;
+    outline: none;
+    border: none;
+    background: url(../../images/marked.png) center no-repeat;
+}
+.card__favorite:hover::before{
+    content: 'Убрать из сохраненных';
+    width: 159px;
+    height: 40px;
+    position: absolute;
+    right: 47px;
+    top: 0;
+    background:#FFFFFF;
+    border-radius: 10px;
+    color: #000000;
+    font-family: 'Roboto',sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    display: flex;
+    justify-content: center;    
+    align-items: center;
+    
+}
+
 
 .card__saved{
         width: 40px;
@@ -91,8 +123,29 @@
     transition:  opacity linear .2s;
 }
 
-.card__saved:hover::before{
+.card__saved_off:hover::before{
     content: 'Войдите, чтобы сохранять статьи';
+    width: 182px;
+    height: 40px;
+    position: absolute;
+    right: 47px;
+    top: 0;
+    background:#FFFFFF;
+    border-radius: 10px;
+    color: #000000;
+    font-family: 'Roboto',sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 12px;
+    display: flex;
+    justify-content: center;    
+    align-items: center; 
+}
+
+
+.card__saved_on:hover::before{
+    content: 'Сохранить';
     width: 182px;
     height: 40px;
     position: absolute;
@@ -144,6 +197,13 @@
     font-size: 26px;
     line-height: 30px;
     color: #1A1B22;
+    height: 95px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
 }
 
 .card__subtitle{
@@ -153,7 +213,14 @@
     font-weight: normal;
     font-size: 16px;
     line-height: 22px;
-    color: #1A1B22;  
+    color: #1A1B22;
+    height: 130px;
+    overflow: hidden;
+    hyphens: auto;
+    text-overflow: ellipsis;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;  
 }
 
 .card__source{

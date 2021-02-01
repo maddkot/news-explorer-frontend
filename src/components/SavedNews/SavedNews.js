@@ -1,23 +1,21 @@
-import React from 'react'
-import '../SavedNews/SavedNews.css';
+import React from 'react';
+import TitleSavedNews from '../TitleSavedNews/TitleSavedNews';
+import CardListSaved from '../CardListSaved/CardListSaved';
 
-function SavedNews({ name }) {
-
-    
-
+function SavedNews({mySavedArticle, loggedIn, checkMySaveArticle, savedKeywords,} ) {
     return (
-        <section className="savedNews">
-            <div className="savedNews__container">
-                <p className="savedNews__subtitle">Сохранённые статьи</p>
-                <h2 className="savedNews__title">{name}, у Вас 5 сохраненных статей</h2>
-                <p className="savedNews__keywords">По ключевым словам:
-                    <span className="savedNews__tag"> Природа, Тайга</span> и 
-                    <span className="savedNews__counter"> 2-м другим</span>
-                </p>    
-            </div>
+        <>
+            <TitleSavedNews
+                mySavedArticle={mySavedArticle}
+                savedKeywords={savedKeywords}
+            />
             
-
-        </section>
+            <CardListSaved
+                mySavedArticle={mySavedArticle}
+                loggedIn={loggedIn}
+                checkMySaveArticle={checkMySaveArticle}
+            />
+        </>    
     )
 }
 
