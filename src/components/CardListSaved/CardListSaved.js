@@ -1,7 +1,6 @@
 import React from 'react'
 import '../CardListSaved/CardListSaved.css';
 import Card from '../Card/Card';
-//import articles from '../../utils/articles';
 
 function CardListSaved({ mySavedArticle, ...props }) {    
     return (

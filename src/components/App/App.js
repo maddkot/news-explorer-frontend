@@ -79,7 +79,7 @@ function App() {
           }
         })
         .catch((error) => {
-          Promise.reject(new Error(`Ошибка ${error}`));
+          console.log(new Error(`Ошибка ${error}`));
         });
     }
   }
@@ -262,7 +262,7 @@ function App() {
       .catch((error) => {
         setPreloader(false);
         setNotFound(true);
-        setErrorServer(false);
+        setErrorServer(error.message);
       })
   }
 
@@ -287,7 +287,7 @@ function App() {
            /* вернуться при работе с ключевыми словами!!!!!! */
         })
         .catch((error) => {
-          Promise.reject(new Error(`Ошибка ${error}`));
+          console.log(new Error(`Ошибка ${error}`));
         })
     } return '';    
   }
@@ -312,7 +312,7 @@ function App() {
           getSavedNews();
         })
         .catch((error) => {
-          Promise.reject(new Error(`Ошибка ${error}`));;
+          console.log(new Error(`Ошибка ${error}`));;
         })
     } return '';
   }
@@ -323,7 +323,7 @@ function App() {
         setMySavedArticle(mySavedArticle.filter((item) => item !== article));        
       })
       .catch((error) => {
-        Promise.reject(new Error(`Ошибка ${error}`));
+        console.log(new Error(`Ошибка ${error}`));
       })
   }  
 

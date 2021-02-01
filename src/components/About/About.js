@@ -10,7 +10,8 @@ function About() {
                 <h3 className="about__title">Об авторе</h3>
                 <p className="about__subtitle">Привет. Меня зовут Сергей и перед Вами проект NewsExplorer - сервис поиска новостей с возможностью сохранения их в личном кабинете.
                 </p>
-                <p className="about__subtitle">Другие проекты вы можете посмотреть на gitHub, по всем вопросам мы можем пообщаться в Instagram.</p>
+                <p className="about__subtitle">С другими моими проектами вы можете ознакомиться на моей страничке в GitHub.</p>
+                <p className="about__subtitle">По возникающим вопросам - пишите мне в Instagram.</p>
             </div>  
         </section>
     )

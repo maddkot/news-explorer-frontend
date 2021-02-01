@@ -1,5 +1,6 @@
 export const base_url = 'https://api.newsexplorer.maddkot.students.nomoreparties.space' //'http://localhost:3000';
-const ImgPlug = 'https://yadi.sk/i/QkgRhn9fhtIRRw';
+
+const ImgPlug = 'https://i.ibb.co/3SkSn1X/news-default.jpg'
 
 // создание нового пользователя 
 export const createUser = (email, password, name) => {
@@ -82,8 +83,7 @@ export const getArticle = () => {
 }
 
 // удаление карточки
-export const deleteArticle = (article) => {
-    console.log(article);
+export const deleteArticle = (article) => {    
     return fetch(`${base_url}/articles/${article._id}`, {
         method: 'DELETE',
         headers: {
@@ -111,7 +111,7 @@ export const createArticles = (article, keyword) => {
         body: JSON.stringify({
             keyword,
             title: article.title,
-            text: article.description ||article.text,
+            text: article.description || article.text,
             date: article.publishedAt,
             source: article.source.name,
             link: article.url,

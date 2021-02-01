@@ -20,10 +20,7 @@ function TitleSavedNews({mySavedArticle, savedKeywords}) {
             else {
                 tagsString += savedKeywords[i].keyword + ', '
             }
-        }
-        /* if (otherCount) {
-            tagsString += 'и' 
-        } */
+        }        
         tagsString = tagsString.slice(0, -2);
         return { tagsString, otherCount }
     } 
