@@ -41,7 +41,7 @@ function PopupWithLogin({ isOpen, onChangePopup, onClose, errorMessageInPopup, o
                 placeholder="Введите почту"
                 required
                 minLength="5"
-                maxLength="20"
+                maxLength="25"
                 value={values.email || ''}
                 onChange={handleChange}
             ></input>
@@ -55,7 +55,7 @@ function PopupWithLogin({ isOpen, onChangePopup, onClose, errorMessageInPopup, o
                 placeholder="Введите пароль"
                 required
                 minLength="5"
-                maxLength="20"
+                maxLength="25"
                 value={values.password || ''}
                 onChange={handleChange}
             ></input>

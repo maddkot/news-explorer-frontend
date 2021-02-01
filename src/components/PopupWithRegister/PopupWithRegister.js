@@ -40,7 +40,7 @@ function PopupWithRegister({ isOpen, onChangePopup, onClose, errorMessageInPopup
                 placeholder="Введите почту"
                 required
                 minLength="5"
-                maxLength="20"
+                maxLength="25"
                 value={values.email || ''}
                 onChange={handleChange}
             ></input>
@@ -54,7 +54,7 @@ function PopupWithRegister({ isOpen, onChangePopup, onClose, errorMessageInPopup
                 placeholder="Введите пароль"
                 required
                 minLength="5"
-                maxLength="15"
+                maxLength="25"
                 value={values.password || ''}
                 onChange={handleChange}
             ></input>
@@ -67,7 +67,7 @@ function PopupWithRegister({ isOpen, onChangePopup, onClose, errorMessageInPopup
                 placeholder="Введите свое имя"
                 required
                 minLength="2"
-                maxLength="20"
+                maxLength="25"
                 value={values.name || ''}
                 onChange={handleChange}
             ></input>
